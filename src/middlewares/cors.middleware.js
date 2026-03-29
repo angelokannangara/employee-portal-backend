@@ -1,11 +1,10 @@
-
 import cors from 'cors';
 
 const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',') || [];
 
 export const corsOptions = cors({
   origin: (origin, callback) => {
-    // Allow requests with no origin (e.g., Postman, server-to-server)
+    
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {

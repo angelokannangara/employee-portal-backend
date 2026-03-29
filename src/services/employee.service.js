@@ -2,7 +2,7 @@ import redis from '../config/redis.js';
 import * as repo from '../repositories/employee.repository.js';
 import AppError from '../utils/AppError.js';
 
-const CACHE_TTL = 300; // 5 minutes
+const CACHE_TTL = 300; 
 
 const invalidateListCache = async () => {
   const { keys } = await redis.scan(0, { match: 'employees:list:*', count: 100 });
